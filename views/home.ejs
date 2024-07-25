@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= msg.name %></title>
+</head>
+<body>
+    <h1>Welcome to <%= msg.name %></h1>
+    <h2>Status: <%= msg.isOpen ? "Open" : "Closed" %></h2>
+    <h3>Address: <%= msg.address %></h3>
+    <h3>Phone: <%= msg.phone %></h3>
+    <hr>
+    <h2>Menu</h2>
+    <ul>
+        <% msg.menu.forEach(function(item) { %>
+            <li><strong><%= item.name %></strong> - $<%= item.price.toFixed(2) %>
+            <br>
+            <em>Rating: <%= item.rating %>/5</em>
+            <p><%= item.details %></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
