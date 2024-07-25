@@ -50,12 +50,17 @@ const RESTAURANT = {
     ]
 }
 
-// The lab
-
 app.get('/', (req, res) => {
     res.render('home.ejs', {
         msg: RESTAURANT    
     });
 });
+
+app.get('/menu', (req, res) => {
+    res.render('menu.ejs', {
+        msg: RESTAURANT.menu
+    });
+});
+
 
 app.listen(3000);
