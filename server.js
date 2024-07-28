@@ -62,5 +62,16 @@ app.get('/menu', (req, res) => {
     });
 });
 
+app.get('/menu/:category', (req, res) => {
+    const category = req.params.category;
+    const filteredMenu = RESTAURANT.menu.filter(item => item.category === category);
 
+    if (filteredMenu.length > 0) {
+        res.render('menu.ejs', {
+            msg: filteredMenu 
+        });
+    } else {
+        res.status(404).send('Category not found');
+    }
+});
 app.listen(3000);
